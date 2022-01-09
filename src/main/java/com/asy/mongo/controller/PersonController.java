@@ -1,19 +1,14 @@
 package com.asy.mongo.controller;
 
-import com.asy.mongo.service.PersonService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RequiredArgsConstructor
-@RestController
+@Controller
 public class PersonController {
 
-    private final PersonService personService;
-
     @GetMapping("/")
-    public String insert(){
-        personService.insert();
-        return "sueccess";
+    public ModelAndView main(){
+        return new ModelAndView("main");
     }
 }
