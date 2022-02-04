@@ -12,6 +12,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class PersonService {
@@ -31,6 +33,10 @@ public class PersonService {
 
         return "finish";
 
+    }
+
+    public List<Person> list(){
+        return mongoTemplate.findAll(Person.class);
     }
 
     public void insert(Person person){
