@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
 @Getter
-@Document("person_info")
+@Document("person_data")
 public class Person {
     @Id
     private long registerNumber;

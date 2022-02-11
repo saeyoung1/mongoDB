@@ -2,7 +2,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://saeyoung:dkstpdud13@cluster0.7v6vj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      uri: mongodb+srv://saeyoung:dkstpdud13@cluster0.d12ow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
     console:
       enabled: true
       path: /h2-console
