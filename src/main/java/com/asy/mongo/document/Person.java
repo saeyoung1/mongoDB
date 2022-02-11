@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("person_data")
 public class Person {
     @Id
-    private long registerNumber;
+    private long id;
     private String name;
     private String address;
     private int age;

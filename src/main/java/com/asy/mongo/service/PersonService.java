@@ -36,6 +36,7 @@ public class PersonService {
     }
 
     public List<Person> list(){
+        List<Person> test = mongoTemplate.findAll(Person.class);
         return mongoTemplate.findAll(Person.class);
     }
 
@@ -45,14 +46,14 @@ public class PersonService {
 
     public void update(Person person){
 
-        Person selectPerson = mongoTemplate.findById(person.getRegisterNumber(),Person.class);
+        Person selectPerson = mongoTemplate.findById(person.getId(),Person.class);
 
         Query query = new Query();
         Update update = new Update();
 
-        query.addCriteria(Criteria.where("_id").is(selectPerson.getRegisterNumber()));
+        query.addCriteria(Criteria.where("_id").is(selectPerson.getId()));
 
-        update.set(ColumnName.ID.getName(),person.getRegisterNumber());
+        update.set(ColumnName.ID.getName(),person.getId());
         update.set(ColumnName.NAME.getName(), person.getName());
         update.set(ColumnName.ADDRESS.getName(), person.getAddress());
         update.set(ColumnName.AGE.getName(), person.getAge());
@@ -61,10 +62,10 @@ public class PersonService {
     }
 
     public void delete(Person person){
-        Person selectPerson = mongoTemplate.findById(person.getRegisterNumber(),Person.class);
+        Person selectPerson = mongoTemplate.findById(person.getId(),Person.class);
         Query query = new Query();
 
-        query.addCriteria(Criteria.where("_id").is(selectPerson.getRegisterNumber()));
+        query.addCriteria(Criteria.where("_id").is(selectPerson.getId()));
 
         mongoTemplate.findAndRemove(query,Person.class);
     }
