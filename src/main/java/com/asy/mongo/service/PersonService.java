@@ -3,6 +3,8 @@ package com.asy.mongo.service;
 import com.asy.mongo.document.Person;
 import com.asy.mongo.enums.ColumnName;
 import com.asy.mongo.enums.OperationType;
+import com.asy.mongo.paging.Page;
+import com.asy.mongo.paging.PagingColumn;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -36,8 +38,13 @@ public class PersonService {
 
     }
 
-    public List<Person> list(){
-        return mongoTemplate.findAll(Person.class);
+    public Page<Person> list(PagingColumn pagingColumn){
+        List<Person> list = mongoTemplate.findAll(Person.class);
+        Page<Person> page = new Page<>(list);
+        page.setRecordsFiltered(list.size());
+        page.setRecordsTotal(list.size());
+        page.setDraw(pagingColumn.getDraw());
+        return page;
     }
 
     public void insert(Person person){

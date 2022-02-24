@@ -1,6 +1,8 @@
 package com.asy.mongo.controller;
 
 import com.asy.mongo.document.Person;
+import com.asy.mongo.paging.Page;
+import com.asy.mongo.paging.PagingColumn;
 import com.asy.mongo.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class PersonRestController {
     }
 
     @PostMapping("/list")
-    public List<Person> list(@RequestBody PagingRe){
-        return personService.list();
+    public Page<Person> list(@RequestBody PagingColumn pagingColumn){
+        return personService.list(pagingColumn);
     }
 }
