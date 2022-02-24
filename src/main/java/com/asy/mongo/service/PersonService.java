@@ -23,6 +23,7 @@ public class PersonService {
     public String manage(){
 
         Person person = new Person(950809,"saeyoung","gunpoSanbon",28,"C");
+        //insert(person);
 
         if(StringUtils.equals(OperationType.INSERT.getName(),person.getType()))
             insert(person);
@@ -36,7 +37,6 @@ public class PersonService {
     }
 
     public List<Person> list(){
-        List<Person> test = mongoTemplate.findAll(Person.class);
         return mongoTemplate.findAll(Person.class);
     }
 

@@ -15,27 +15,7 @@
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/assets/datatable/js/jquery.dataTables.min.js}"></script>
 
-<script>
-$('#personList').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": {
-            "url": "/list",
-            "type": "POST",
-            "dataType": "json",
-            "contentType": "application/json",
-            "data": function (d) {
-                return JSON.stringify(d);
-            }
-        },
-        "columns": [
-            {"data": "registerNumber", "width": "20%"},
-            {"data": "name","width": "20%"},
-            {"data": "address", "width": "20%"},
-            {"data": "age", "width": "20%"}
-        ]
-    });
-</script>
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
@@ -90,5 +70,27 @@ $('#personList').DataTable({
         </div>
     </div>
 </div>
+<script>
+    $('#personList').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "/list",
+            "type": "POST",
+            "dataType": "json",
+            "contentType": "application/json",
+            "data": function (d) {
+                console.log(d);
+                return JSON.stringify(d);
+            }
+        },
+        "columns": [
+            {"data": "id", "width": "20%"},
+            {"data": "name","width": "20%"},
+            {"data": "address", "width": "20%"},
+            {"data": "age", "width": "20%"}
+        ]
+    });
+</script>
 </body>
 </html>
