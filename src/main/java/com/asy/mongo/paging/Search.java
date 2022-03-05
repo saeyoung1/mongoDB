@@ -5,7 +5,7 @@ import lombok.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Filter {
+public class Search {
 
     private String value;
     private String regexp;

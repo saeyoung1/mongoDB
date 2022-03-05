@@ -13,5 +13,5 @@ public class PagingColumn {
     private int draw;
     private List<Sort> order;
     private List<Column> columns;
-    private Filter filter;
+    private Search search;
 }

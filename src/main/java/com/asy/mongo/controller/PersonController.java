@@ -9,6 +9,7 @@ public class PersonController {
 
     @GetMapping("/")
     public ModelAndView main(){
+        
         return new ModelAndView("main");
     }
 }

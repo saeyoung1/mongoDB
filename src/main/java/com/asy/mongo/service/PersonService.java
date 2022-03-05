@@ -43,10 +43,10 @@ public class PersonService {
 
         List<Person> list = new ArrayList<>();
 
-        if (StringUtils.equals(pagingColumn.getFilter().getValue(),null)){
+        if (pagingColumn.getSearch().getValue().isEmpty()){
             list = mongoTemplate.findAll(Person.class);
         } else {
-            list =mongoTemplate.find( Query.query(Criteria.where("id").is(pagingColumn.getFilter().getValue())),Person.class);
+            list =mongoTemplate.find( Query.query(Criteria.where("id").is(pagingColumn.getSearch().getValue())),Person.class);
         }
 
         Page<Person> page = new Page<>(list);
