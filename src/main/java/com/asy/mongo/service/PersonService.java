@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -39,7 +40,15 @@ public class PersonService {
     }
 
     public Page<Person> list(PagingColumn pagingColumn){
-        List<Person> list = mongoTemplate.findAll(Person.class);
+
+        List<Person> list = new ArrayList<>();
+
+        if (StringUtils.equals(pagingColumn.getFilter().getValue(),null)){
+            list = mongoTemplate.findAll(Person.class);
+        } else {
+            list =mongoTemplate.find( Query.query(Criteria.where("id").is(pagingColumn.getFilter().getValue())),Person.class);
+        }
+
         Page<Person> page = new Page<>(list);
         page.setRecordsFiltered(list.size());
         page.setRecordsTotal(list.size());
