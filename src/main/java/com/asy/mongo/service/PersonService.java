@@ -23,10 +23,7 @@ public class PersonService {
 
     private final MongoTemplate mongoTemplate;
 
-    public String manage(){
-
-        Person person = new Person(950809,"saeyoung","gunpoSanbon",28,"C");
-        //insert(person);
+    public String manage(Person person){
 
         if(StringUtils.equals(OperationType.INSERT.getName(),person.getType()))
             insert(person);

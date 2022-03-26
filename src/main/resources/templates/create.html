@@ -51,7 +51,7 @@
         <h1>회원 등록</h1>
     </div>
     <div class="starter-template">
-        <form class="form-horizontal" th:action="@{/board/post}" method="post">
+        <form class="form-horizontal">
             <div class="form-group">
                 <label style="float: left" for="name" class="col-sm-2 control-label">이름</label>
                 <div class="col-sm-10" style="margin-top: 10px;">
@@ -81,15 +81,38 @@
             </div>
 
             <div class="btn_wrap text-left" style="margin-top: 40px">
-                <a th:href="@{/}" class="btn btn-secondary">뒤로 가기</a>
-                <button type="input" class="btn btn-primary waves-effect waves-light">저장 하기</button>
+                <a th:href="@{/list}" class="btn btn-secondary">뒤로 가기</a>
+                <button id="insert" type="button" class="btn btn-primary waves-effect waves-light">저장 하기</button>
             </div>
         </form>
     </div>
 </main>
 
 <script>
-
+    $("#insert").click(function() {
+        var jsonData = JSON.stringify({
+            name : $("#name").val(),
+            id : $("#id").val(),
+            address : $("#address").val(),
+            age : $("#age").val(),
+            type : "C"
+        });
+        $.ajax({
+            url : "/manage",
+            type : "post",
+            data : jsonData,
+            contentType : "application/json",
+            dataType : "json",
+            success : function() {
+                alert("저장 성공");
+                location.href = "/list";
+            },
+            error : function() {
+                alert("저장 실패!");
+                location.href = location.href;
+            }
+        });
+    });
 </script>
 </body>
 </html>

@@ -19,8 +19,8 @@ public class PersonRestController {
     private final PersonService personService;
 
     @PostMapping("/manage")
-    public String insert(){
-        personService.manage();
+    public String insert(@RequestBody  Person person){
+        personService.manage(person);
         return "sueccess";
     }
 

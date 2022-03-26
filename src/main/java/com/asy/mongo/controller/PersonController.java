@@ -12,6 +12,11 @@ public class PersonController {
            return new ModelAndView("main");
     }
 
+    @GetMapping("/list")
+    public ModelAndView list(){
+        return new ModelAndView("main");
+    }
+
     @GetMapping("/create")
     public ModelAndView create(){
         return new ModelAndView("create");
