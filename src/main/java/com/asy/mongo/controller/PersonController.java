@@ -9,7 +9,11 @@ public class PersonController {
 
     @GetMapping("/")
     public ModelAndView main(){
-        
-        return new ModelAndView("main");
+           return new ModelAndView("main");
+    }
+
+    @GetMapping("/create")
+    public ModelAndView create(){
+        return new ModelAndView("create");
     }
 }

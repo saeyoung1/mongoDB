@@ -28,10 +28,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-tomcat'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.apache.commons:commons-lang3'
     implementation 'org.webjars:bootstrap:5.1.1'
     implementation 'org.webjars:jquery:3.6.0'
-    implementation 'org.webjars:webjars-locator:0.42'
+    implementation 'org.webjars:webjars-locator:0.45'
     implementation 'com.h2database:h2'
     implementation 'org.projectlombok:lombok'
 }

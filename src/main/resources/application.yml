@@ -11,6 +11,13 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
 
 server:
   port: 8089
